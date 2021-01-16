@@ -13,6 +13,7 @@
         <module>hermes-config</module>
         <module>hermes-annotation</module>
         <module>hermes-data</module>
+        <module>hermes-protocol</module>
     </modules>
 
     <properties>
