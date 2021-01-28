@@ -39,6 +39,14 @@ public class ServiceRegistry {
     }
 
     private void registerService(Class<?> service) {
+        if(service.getConstructors().length == 0) {
+            try {
+                registeredServices.put(service, service.newInstance());
+            } catch (InstantiationException | IllegalAccessException e) {
+                e.printStackTrace();
+            }
+            return;
+        }
         Constructor<?> constructor = service.getConstructors()[0];
 
         Object[] parameters = new Object[constructor.getParameterCount()];
